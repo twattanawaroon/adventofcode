@@ -16,7 +16,6 @@ def valid(ranges, num):
     return False
 
 def process(ranges, nums):
-    ansp = 0
     for num in nums:
         if not any([valid(ranges[c], num) for c in ranges]):
             return False
