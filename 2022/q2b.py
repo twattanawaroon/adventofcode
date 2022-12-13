@@ -1,4 +1,6 @@
 import sys
+import codelib as cl
+
 score = 0
 for line in sys.stdin:
     s, t = line.strip().split()

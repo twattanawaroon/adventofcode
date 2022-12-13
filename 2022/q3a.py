@@ -1,19 +1,23 @@
 import sys
 import codelib as cl
+
 count = 0
+
 
 def dec(c):
     if 'a' <= c <= 'z':
-        return ord(c)-ord('a')+1
+        return ord(c) - ord('a') + 1
     elif 'A' <= c <= 'Z':
-        return ord(c)-ord('A')+27
+        return ord(c) - ord('A') + 27
     return None
+
 
 def freq(v):
     m = dict()
     for i in v:
         cl.dict_inc(m, dec(i))
     return m
+
 
 for line in sys.stdin:
     u = line.strip()

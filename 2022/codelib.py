@@ -111,6 +111,11 @@ def grid_get(grid, pos):
     return grid[i][j]
 
 
+def grid_set(grid, pos, val):
+    i, j = pos
+    grid[i][j] = val
+
+
 def grid_inside(grid_dims, pos):
     i, j = pos
     gridh, gridw = grid_dims
@@ -203,6 +208,18 @@ def reachable_bfs(adj, start):
                 q.append(r)
     return visited
 
+def shortest_path_bfs(adj, start):
+    dist = dict()
+    dist[start] = 0
+    q = collections.deque()
+    q.append(start)
+    while len(q) > 0:
+        p = q.popleft()
+        for r in adj(p):
+            if r not in dist:
+                dist[r] = dist[p]+1
+                q.append(r)
+    return dist
 
 def shortest_path_dijkstra(adj, start, end):
     h = []
