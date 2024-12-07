@@ -37,11 +37,10 @@ for r in range(10000):
         xfi = xf[monkey]
         for item in l[monkey]:
             oz = item if operandi == 'old' else int(operandi)
-            newitem = (item + oz) if signi == '+' else (item * oz)
-            newitem %= MD
+            newitem = cl.arithmetic(item, oz, signi) % MD
             l[xti if newitem % testi == 0 else xfi].append(newitem)
         count[monkey] += len(l[monkey])
         l[monkey].clear()
 
 count.sort()
-print(count[-2]*count[-1])
+print(cl.product(count[-2:]))
